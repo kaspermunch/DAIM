@@ -39,21 +39,21 @@ def print_err(*args, **kwargs):
 
 parser = argparse.ArgumentParser(description='Migration inference from PSMC.')
 
-parser.add_argument('mode', choices=['logit', 'precomp'],
+parser.add_argument('--mode', choices=['logit', 'precomp'],
                     help='trajectory mode')
-parser.add_argument('input_file', nargs='*',
+parser.add_argument('--input_file', nargs='*',
                     help='input file with the trajectory for precomputed mode')
 
 parser.add_argument('--point', '-p', nargs=3, type=str, action = 'append',
                     help='points for logistic function mode: [time] [AF] [selectio]')#-mi [npop:1/2] [migStart] [migEnd] [init val] [var:0/1]
 
-parser.add_argument('-Ne', type=int, default=10000,
+parser.add_argument('--Ne', type=int, default=10000,
                     help='haploid effective population size')
 
 parser.add_argument('--pdf', action='store_true',
                     help='Output probability density function')
 
-#parser.add_argument('-at', action='store_true',
+#parser.add_argument('--at', action='store_true',
 #                    help='Output all trajectories, if not specified, only expected trajectories will be output')
 
 

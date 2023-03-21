@@ -24,16 +24,16 @@ import argparse
 
 parser = argparse.ArgumentParser(description='Migration inference from PSMC.')
 
-parser.add_argument('proportion', type=float,
+parser.add_argument('--proportion', type=float,
                     help='admixture proportion')
-parser.add_argument('selection', type=float,
+parser.add_argument('--selection', type=float,
                     help='selection coefficient (for homozygous diploid individual with fitness 1+s, which translates into the fitness 1+s/2 for haploid populations)')
-parser.add_argument('Ne', type=int,
+parser.add_argument('--Ne', type=int,
                     help='haploid effective population size')
-parser.add_argument('generations', type=int, nargs='+',
+parser.add_argument('--generations', type=int, nargs='+',
                     help='number of generations (can have multiple values)')
 
-parser.add_argument('-at', action='store_true',
+parser.add_argument('--at', action='store_true',
                     help='Output all trajectories, if not specified, only expected trajectories will be output')
 parser.add_argument('--reps', '-r', type=int, default=100000,
                     help='number of repetitions')

@@ -21,3 +21,11 @@ Use `./precomp_traj.py` to simulate the expected trajectories. Notice that you c
 ./precomp_traj.py 0.0006 0.01 10000 1500 1750 2000 2250 > mean_traj.txt
 ./tract_length.py precomp mean_traj.txt
 ```
+
+
+# KMT notes
+
+    python precomp_traj.py --proportion 0.0006 --selection 0.01 --Ne 10000 --generations 1500 1750 2000 2250 > mean_traj.txt
+    python precomp_traj.py --proportion 0.01 --selection 0.10 --Ne 10000 --generations 5000 50000 > mean_traj.txt
+
+    python tract_length.py --pdf --mode precomp --Ne 10000 --input_file mean_traj.txt > traj_out.txt
