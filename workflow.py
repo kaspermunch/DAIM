@@ -32,6 +32,7 @@ def workflow(working_dir=os.getcwd(),
                             inputs=input_files,
                             outputs=[precomp_output_file],
                         ) << f"""
+                        mkdir -p {output_dir}
                         python precomp_traj.py --proportion {admix_prop} --selection {sel_coef} --Ne {Ne} \
                             --generations {' '.join(map(str, generations))} > $TMPDIR/{label} && mv $TMPDIR/{label} {precomp_output_file}
                         """
@@ -44,6 +45,7 @@ def workflow(working_dir=os.getcwd(),
                             inputs=[precomp_output_file],
                             outputs=[traj_output_file]
                         ) << f"""
+                        mkdir -p {output_dir}
                         python tract_length.py --pdf --mode precomp --Ne {Ne} --input_file {precomp_output_file} > {traj_output_file}
                         """
                         targets['tract_length'].append(target)
